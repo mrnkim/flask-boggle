@@ -34,8 +34,8 @@ class BoggleAppTestCase(TestCase):
 
         with self.client as client:
             response = client.post('/api/new-game',
-                                   data={'gameId': str,
-                                         'board': list})
+                                   data={'gameId': "game_id",
+                                         'board': "game.board"})
             json = response.get_json()
 
             self.assertIs(type(json['gameId']), str)
