@@ -35,8 +35,9 @@ def score_word():
 
     game = BoggleGame()
     print(game.board)
-    breakpoint()
+    # breakpoint()
     response = request.json #JSON: {game_id, word}
+    print(request)
 
     if game.is_word_in_word_list(f"{response['word']}"):
        if game.check_word_on_board(f"{response['word']}"):
