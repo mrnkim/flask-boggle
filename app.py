@@ -28,3 +28,20 @@ def new_game():
 
     game_dict = {"gameId": game_id, "board": game.board}
     return jsonify(game_dict)
+
+@app.post("/api/score-word")
+def score_word():
+    """check if the word is in the word list and if it's findable on the board"""
+
+    game = BoggleGame()
+    print(game.board)
+    breakpoint()
+    response = request.json #JSON: {game_id, word}
+
+    if game.is_word_in_word_list(f"{response['word']}"):
+       if game.check_word_on_board(f"{response['word']}"):
+           return jsonify({"result": "ok"})
+       else:
+           return jsonify({"result": "not-on-board"})
+    else:
+        return jsonify({"result": "not-word"})

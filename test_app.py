@@ -41,7 +41,7 @@ class BoggleAppTestCase(TestCase):
             self.assertIs(type(data['gameId']), str)
             self.assertIs(type(data['board']), list)
             self.assertIn(data['gameId'], games)
-            # self.assertIs()
+
             # make a post request to /api/new-game
             # get the response body as json using .get_json()
             # test that the game_id is a string
